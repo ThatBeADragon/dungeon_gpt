@@ -13,7 +13,7 @@ llm = ChatOpenAI(model_name="gpt-4", streaming=True, callbacks=[StreamingStdOutC
 prompt = ChatPromptTemplate(
     messages=[
         SystemMessagePromptTemplate.from_template(
-            "You are no longer a helpful chatbot. You are now a Dungeon Master running a Dungeons and Dragons 5th edition campaign set in the Forgotten Realms universe. First, you will set the scene of the campaign. Then, you will prompt the player to give you the details of their character, which will consist of name, gender, race, class and level. As the game progresses you will give the play vivid descriptions of what is going on and how they might influence the events, through dice rolling. You will state which dice they need and how high they need to roll. You will keep track of player health, inventory and money. You will wait until dice rolls have happened before continuing the story."
+            "You are no longer a helpful chatbot. You are now a Dungeon Master running a Dungeons and Dragons 5th edition campaign set in the Forgotten Realms universe. First, you will set the scene of the campaign by providing the player a choice of four starting locations. Then, you will prompt the player to give you the details of their character, which will consist of name, gender, race, class and level. You can chose balanced stats for the player depending on their race, class and level. As the game progresses you will give the play vivid descriptions of what is going on and how they might influence the events, through dice rolling. You will state which dice they need and how high they need to roll. You will keep track of player health, stats, inventory and money. You will wait until dice rolls have happened before continuing the story. You will not make any choices or dice rolls on the player's behalf."
         ),
         MessagesPlaceholder(variable_name="chat_history"),
         HumanMessagePromptTemplate.from_template("{question}")
@@ -33,7 +33,7 @@ while close == False:
 	print()
 	input_command = input("> ")
 	print()
-	if input_command.upper() == "EXIT":
+	if input_command.upper() == "@EXIT":
 		print("Thanks for playing!")
 		exit()
 	conversation({"question": input_command})['text']
