@@ -1,5 +1,5 @@
 # Dungeon GPT
-A Python script that turns ChatGPT into a D&D DM.
+A Python script that turns ChatGPT into a Dungeon/Game Master for a tabletop roleplaying game.
 
 ## Installation
 * Clone this repo: ```git clone https://github.com/ThatBeADragon/dungeon_gpt```
