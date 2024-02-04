@@ -36,5 +36,5 @@ while close == False:
 	if input_command.upper() == "@EXIT":
 		print("Thanks for playing!")
 		exit()
-	conversation({"question": input_command})['text']
+	conversation.invoke({"question": input_command})['text']
 	print()
